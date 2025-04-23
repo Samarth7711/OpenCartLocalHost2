@@ -3,16 +3,22 @@ package testbase;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 
 public class BaseClass {
+	public Logger logger;
 	
 public WebDriver driver;
 	
 	@BeforeClass
 	public void setup() {
+		
+		logger =LogManager.getLogger(this.getClass());
+		
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Samarth Patil\\eclipse-workspace\\OpenCartLocalHost2\\rsources\\chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().deleteAllCookies();
