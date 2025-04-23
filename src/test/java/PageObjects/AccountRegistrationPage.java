@@ -34,6 +34,9 @@ public class AccountRegistrationPage extends BasePage{
 	@FindBy(xpath="//*[@id=\"content\"]/form/div/div/input[2]")
 	WebElement btncntn;
 	
+	@FindBy (xpath="//*[@id=\"content\"]/h1")
+	WebElement msgconfirmation;
+	
 	
 	public void FirstName(String fname) {
 		txtfname.sendKeys(fname);
@@ -65,6 +68,14 @@ public class AccountRegistrationPage extends BasePage{
 	
 	public void setContinue() {
 		btncntn.click();
+	}
+	
+	public String msfconfirm() {
+		try {
+			return (msgconfirmation.getText());
+		}catch (Exception e) {
+			return (e.getMessage());
+		}
 	}
 	
 		}
