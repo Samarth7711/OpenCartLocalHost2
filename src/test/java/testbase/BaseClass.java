@@ -1,5 +1,8 @@
 package testbase;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -11,11 +14,18 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseClass {
 	public Logger logger;
+	public Properties p;
 	
 public WebDriver driver;
 	
 	@BeforeClass
-	public void setup() {
+	public void setup() throws IOException {
+		
+		FileReader file=new FileReader("./src//test//resources//config.properties");
+		p=new Properties();
+		p.load(file);
+		
+		
 		
 		logger =LogManager.getLogger(this.getClass());
 		
@@ -23,7 +33,7 @@ public WebDriver driver;
 		driver=new ChromeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-		driver.get("http://localhost/opencart/");
+		driver.get(p.getProperty("appURL"));
 		driver.manage().window().maximize();
 	}
 	public String randomString() {

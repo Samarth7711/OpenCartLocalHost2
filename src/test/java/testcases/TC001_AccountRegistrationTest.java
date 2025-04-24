@@ -30,7 +30,7 @@ public class TC001_AccountRegistrationTest extends BaseClass {
 		rpage.email(randomString()+"@gmail.com");
 		rpage.telephone(randomNumber());
 		
-		String password=randomAlphaNumeric();
+		String password=randomAlphaNumeric();	
 		rpage.password(password);
 		rpage.confirmpass(password);
 		rpage.setPolicy();
