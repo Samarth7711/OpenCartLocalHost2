@@ -8,7 +8,7 @@ import testbase.BaseClass;
 
 public class TC002_LoginTest extends BaseClass{
 	
-	@Test
+	@Test()
 	public void verifylogin() {
 		logger.info("********Starting TC002_LoginTest********");
 		HomePage hp=new HomePage(driver);
@@ -18,6 +18,7 @@ public class TC002_LoginTest extends BaseClass{
 		
 		LoginPage lp=new LoginPage(driver);
 		lp.enteremail(p.getProperty("email"));
+		//lp.enterpassword(p.getProperty("password"));
 		lp.enterpassword(p.getProperty("password"));
 		lp.clicklogin();
 		
