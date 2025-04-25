@@ -19,6 +19,9 @@ public class LoginPage extends BasePage{
 	@FindBy(xpath="//*[@id=\"content\"]/div/div[2]/div/form/input")
 	WebElement btnclick;
 	
+	@FindBy(xpath="//*[@id=\"content\"]/h2[3]")
+	WebElement verifylogin;
+	
 	public void enteremail(String email) {
 		enteremail.sendKeys(email);
 		
@@ -29,5 +32,6 @@ public class LoginPage extends BasePage{
 	public void clicklogin() {
 		btnclick.click();
 	}
+	
 
 }
